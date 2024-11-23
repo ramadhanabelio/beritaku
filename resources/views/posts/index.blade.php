@@ -14,7 +14,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>No.</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th>Action</th>
@@ -23,7 +23,7 @@
                 <tbody>
                     @foreach ($posts as $post)
                         <tr>
-                            <td>{{ $post->id }}</td>
+                            <td>{{ $loop->index + 1 }}.</td>
                             <td>{{ $post->title }}</td>
                             <td>{!! \Illuminate\Support\Str::words(strip_tags($post->body), 10, '...') !!}</td>
                             <td>

@@ -11,17 +11,23 @@
         @csrf
         <div class="row">
             <div class="col-xl-8 col-lg-8 col-sm-12 col-12 m-auto">
-                @if (Session::has('success'))
-                    <div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        {{ Session::get('success') }}
-                    </div>
-                @elseif(Session::has('failed'))
-                    <div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        {{ Session::get('failed') }}
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 @endif
+
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @elseif (session('failed'))
+                    <div class="alert alert-danger">{{ session('failed') }}</div>
+                @endif
+
                 <div class="card shadow">
                     <div class="card-header">
                         <h4 class="card-title text-center mt-2">Laravel 10 CKEditor Integration</h4>
