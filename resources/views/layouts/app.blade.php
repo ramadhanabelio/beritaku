@@ -10,6 +10,8 @@
     {{-- CSS Bootstrap --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {{-- CSS DataTables --}}
+    <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     {{-- Icon Bootstrap --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     {{-- CKEditor CDN --}}
@@ -24,7 +26,7 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('img/logo.png') }}" alt="Logo Beritaku" width="35"
-                    class="d-inline-block align-text-top me-1">
+                    class="d-inline-block align-text-top me-2">
                 Beritaku
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
@@ -35,10 +37,10 @@
             <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/">Beranda</a>
+                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/posts">Berita</a>
+                        <a class="nav-link {{ request()->is('posts*') ? 'active' : '' }}" href="/posts">Berita</a>
                     </li>
                 </ul>
             </div>
@@ -46,7 +48,7 @@
     </nav>
     {{-- Navbar End --}}
 
-    <div class="container mt-5 mb-5">
+    <div class="container mt-3 mb-5">
         @yield('content')
     </div>
 
@@ -56,6 +58,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+    {{-- DataTables JavaScript --}}
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
     {{-- My JS --}}
     <script src="{{ asset('js/script.js') }}"></script>
 </body>

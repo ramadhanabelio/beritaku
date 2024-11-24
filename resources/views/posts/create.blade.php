@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-xl-12 text-right">
-            <a href="{{ url('posts') }}" class="btn btn-danger">Back</a>
-        </div>
-    </div>
-
     <form action="{{ url('store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
@@ -14,11 +8,9 @@
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+                        @foreach ($errors->all() as $error)
+                            {{ $error }}
+                        @endforeach
                     </div>
                 @endif
 
@@ -30,7 +22,7 @@
 
                 <div class="card shadow">
                     <div class="card-header">
-                        <h4 class="card-title text-center mt-2">Laravel 10 CKEditor Integration</h4>
+                        <h4 class="card-title text-center mt-2">Tambah Berita</h4>
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
@@ -47,7 +39,8 @@
                             <input type="file" class="form-control" name="image">
                         </div>
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer text-end">
+                        <a href="{{ url('posts') }}" class="btn btn-danger me-1">Cancel</a>
                         <button type="submit" class="btn btn-success">Save</button>
                     </div>
                 </div>
