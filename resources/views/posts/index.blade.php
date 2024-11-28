@@ -6,7 +6,7 @@
         <a href="{{ url('create') }}" class="btn btn-success">+ Add Post</a>
     </div>
     <div class="table-responsive mt-4">
-        <table id="postTable" class="table table-striped">
+        <table id="dataTable" class="table table-striped">
             <thead>
                 <tr>
                     <th>No.</th>
@@ -22,7 +22,7 @@
                         <td>{{ $post->title }}</td>
                         <td>{!! \Illuminate\Support\Str::words(strip_tags($post->body), 10, '...') !!}</td>
                         <td>
-                            <a href="{{ url('posts/' . $post->id) }}" class="badge text-bg-info text-decoration-none"><i
+                            <a href="{{ url('posts/' . $post->slug) }}" class="badge text-bg-info text-decoration-none"><i
                                     class="bi bi-eye-fill"></i> Show</a>
                             <a href="{{ url('posts/' . $post->id . '/edit') }}"
                                 class="badge text-bg-warning text-decoration-none"><i class="bi bi-pencil-fill"></i>

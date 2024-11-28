@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::get('posts', [PostController::class, "index"]);
 Route::get("create", [PostController::class, "create"]);
 Route::post('store', [PostController::class, "store"]);
-Route::get('posts/{id}', [PostController::class, 'show']);
+Route::get('posts/{slug}', [PostController::class, 'show']);
 Route::get('posts/{id}/edit', [PostController::class, 'edit']);
 Route::put('posts/{id}', [PostController::class, 'update']);
 Route::delete('posts/{id}', [PostController::class, 'destroy']);

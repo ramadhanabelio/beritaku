@@ -3,5 +3,5 @@ ClassicEditor.create(document.querySelector("#body")).catch((error) => {
 });
 
 $(document).ready(function () {
-    $("#postTable").DataTable();
+    $("#dataTable").DataTable();
 });

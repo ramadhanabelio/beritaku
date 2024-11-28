@@ -14,9 +14,9 @@ class PostController extends Controller
         return view("posts.index", compact("posts"));
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::findBySlug($slug);
         return view('posts.show', compact('post'));
     }
 

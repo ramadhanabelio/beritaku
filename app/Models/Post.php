@@ -12,12 +12,19 @@ class Post extends Model
 
     protected $fillable = [
         "title",
+        "slug",
         "body",
         'image'
     ];
 
     public $incrementing = false;
     protected $keyType = 'string';
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
 
     protected static function boot()
     {
@@ -28,5 +35,10 @@ class Post extends Model
                 $model->id = (string) Str::uuid();
             }
         });
+    }
+
+    public static function findBySlug($slug)
+    {
+        return self::where('slug', $slug)->firstOrFail();
     }
 }
